@@ -1,0 +1,30 @@
+{
+    "CLASS_NAME": "LightSource",
+    "name": "Soleil - HU42",
+    "electron_beam": {
+        "CLASS_NAME": "ElectronBeam",
+        "energy_in_GeV": 2.75,
+        "energy_spread": 0.0010249999999999999,
+        "current": 0.5,
+        "number_of_bunches": 1,
+        "moment_xx": 5.00542334891089e-08,
+        "moment_xxp": -9.36868277227723e-11,
+        "moment_xpxp": 9.36324174515936e-10,
+        "moment_yy": 9.144581318069308e-11,
+        "moment_yyp": -8.204978341584159e-13,
+        "moment_ypyp": 2.3212968869886717e-11,
+        "e_x": 0.00022372803465169245,
+        "e_y": 9.562730424972414e-06,
+        "e_xp": 3.0599414610674104e-05,
+        "e_yp": 4.8179839009576105e-06
+    },
+    "magnetic_structure": {
+        "B_horizontal": null,
+        "B_vertical": null,
+        "K_vertical": null,
+        "K_horizontal": null,
+        "period_length": 0.042,
+        "number_of_periods": 42,
+        "CLASS_NAME": "Undulator"
+    }
+}
