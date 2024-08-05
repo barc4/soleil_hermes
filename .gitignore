@@ -1,3 +1,5 @@
 *.csv
 *plots.ipynb
 *debug.ipynb
+*/debug/*
+.ipynb_checkpoints
