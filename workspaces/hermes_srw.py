@@ -13,7 +13,7 @@ __contact__ = 'rafael.celestre@synchrotron-soleil.fr'
 __license__ = 'GPL-3.0'
 __copyright__ = 'Synchrotron SOLEIL, Saint Aubin, France'
 __created__ = '01/AUG/2024'
-__changed__ = '03/AUG/2024'
+__changed__ = '06/AUG/2024'
 
 import sys
 
@@ -33,11 +33,25 @@ def main():
 
     ini_wft_npix = [100, 100]
     ini_wft_range = [5e-3, 5e-3]
-    beam_energy = 719.9
+    E0 = 719.9
+    RP = 10000
     pupil_position = 18.151
     sampling_factor = 0.2
 
-    nMacroElec = 100
+    nMacroElec = 20000
+
+    if RP>100000:
+        RP=1E23
+        strIntPrtlChrnc = "mono_E0_"
+    else:
+        if RP < 0:
+            strIntPrtlChrnc = f"mono_RP{-RP}n"
+        else:
+            strIntPrtlChrnc = f"mono_RP{RP}p"
+
+    strIntPrtlChrnc += str(nMacroElec/1000)+'k_ME.dat'
+
+    beam_energy = E0*(1+2/RP)    
 
     mesh = SRWLRadMesh(_eStart=beam_energy,
                             _eFin  =beam_energy,
@@ -217,11 +231,6 @@ def main():
     OE = [pupil,    m1a,    d2m1b,    m1b,    d2S1,    S1,    d2G,    G450,    d2m2,    m2,    d2m3,    m3,    d2S2,    S2]
     PP = [pp_pupil, pp_m1a, pp_d2m1b, pp_m1b, pp_d2S1, pp_S1, pp_d2G, pp_G450, pp_d2m2, pp_m2, pp_d2m3, pp_m3, pp_d2S2, pp_S2]
 
-    branch = "mono"
-
-    oe_branch = []
-    pp_branch = []
-        
     optBL = SRWLOptC(OE, PP)
 
     if srwl_uti_proc_is_master() is True and nMacroElec==1:
@@ -235,7 +244,6 @@ def main():
     if nMacroElec>1:
         calculation = 0
         strDataFolderName = "./results/"
-        strIntPrtlChrnc = branch + '_' + str(nMacroElec/1000)+'k_ME.dat'
         print('- Simulating Partially-Coherent Wavefront Propagation... ') if(srwl_uti_proc_is_master()) else 0
         nMacroElecAvgPerProc = 10   # number of macro-electrons / wavefront to average on worker processes
         nMacroElecSavePer = 100     # intermediate data saving periodicity (in macro-electrons)
@@ -250,8 +258,6 @@ def main():
     hours, minutes = divmod(deltaT, 3600)
     minutes, seconds = divmod(minutes, 60)
     print("\n>>>> Elapsed time: " + str(int(hours)) + "h " + str(int(minutes)) + "min " + str(seconds) + "s ") if(srwl_uti_proc_is_master()) else 0
-
-
 
 
 def srw_quick_plot(wfr, phase=False, me=0, backend="srw"):
