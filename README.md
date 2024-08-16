@@ -4,7 +4,7 @@
 
 ## PyOptiX
 
-You can get PyOptiX [here](https://github.com/ddennetiere/pyoptix) and its C core (here)[https://github.com/ddennetiere/pyoptix].
+You can get PyOptiX [here](https://github.com/ddennetiere/pyoptix) and its C core [here](https://github.com/ddennetiere/optix).
 
 
 # HERMES beamline
