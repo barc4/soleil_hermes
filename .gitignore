@@ -1,0 +1,8 @@
+*.csv
+*plots.ipynb
+*debug.ipynb
+*/debug/*
+.ipynb_checkpoints
+*.dat
+*__srwl_logs__
+*.png
