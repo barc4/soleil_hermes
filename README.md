@@ -1,5 +1,14 @@
+# PyOptiX benchmarking: preparing our beamlines for the SOLEIL upgrade
+
+![alt text](https://github.com/barc4/soleil_hermes/blob/master/poster.png)
+
+## PyOptiX
+
+You can get PyOptiX [here](https://github.com/ddennetiere/pyoptix) and its C core (here)[https://github.com/ddennetiere/pyoptix].
+
+
 # HERMES beamline
-repository for HERMES simulations using PyOptiX, SHADOW and SRW
+repository for [Hermes](https://doi.org/10.1107/S1600577515007778) simulations using [PyOptiX](https://github.com/ddennetiere/pyoptix), [SHADOW3](https://github.com/oasys-kit/shadow3) and [4](https://github.com/oasys-kit/shadow4/) as well as [SRW](https://github.com/ochubar/SRW)
 
 
 ## The beamline
@@ -16,11 +25,3 @@ Finally, both methods can be used not only to get images of samples, but also to
 
 HERMES beamline is installed on a medium straight section (IM9). The beamline covers the energy range going from 70 eV to 2,5 keV. The beamline starts right below the Si2p-edge, covers the K-edge of light elements (C, N, O...) , L-edge of transition metals, M-edge of rare earth and eventually the K-edge of Si, S and P. Furthermore, the beamline enables to work with the variable linear polarization (horizontal to vertical), in  addition to circular and elliptical polarizations.
 To enable this, the beamline has two undulators, Apple-II type : HU-64 (1.7m, 25 periods) covering the 70-600 eV range; HU-42 (1.8m, 42 periods) for the high energy range, going from 0,5 to 2,5 keV.
-
-# The software
-
-## PyOptiX
-
-## Shadow
-
-## SRW
