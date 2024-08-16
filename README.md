@@ -1,6 +1,6 @@
 # PyOptiX benchmarking: preparing our beamlines for the SOLEIL upgrade
 
-![alt text](https://github.com/barc4/soleil_hermes/blob/master/poster.png)
+![alt text](https://github.com/barc4/soleil_hermes/blob/main/poster.png)
 
 ## PyOptiX
 
